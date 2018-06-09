@@ -33,6 +33,8 @@ $(document).ready(function(){
     /* Make the log chat as tall as the arena height. */
     $("#log").height($(".arena").height() - 25);
 
+    var objDiv = document.getElementById("chatDiv");
+
     // When the first card is selected,
     // If there is no attacker, Bulbasaur will become our attacker,
     // Else, if there is no defender, Bulbasaur will become our defender.
@@ -56,7 +58,7 @@ $(document).ready(function(){
             $("#attackerArea").attr("src", "./assets/images/bulbasaur.gif");
             $("#attackerArea").addClass("flipped");
 
-            $("#log").append("You have chosen Bulbasaur! <br>");
+            $("#log").prepend("You have chosen Bulbasaur! <br>");
         }
         else if (defender.attack == 0 && attacker.name != "Bulbasaur" && !defeatedOpponents.includes("Bulbasaur")){
             defender = {
@@ -77,10 +79,8 @@ $(document).ready(function(){
             $("#c1").css("background-color", "#FBA5A5");
             $("#defenderArea").attr("src", "./assets/images/bulbasaur.gif");
 
-            $("#log").append("Your opponent will be Bulbasaur! <br>");
+            $("#log").prepend("Your opponent will be Bulbasaur! <br>");
         }
-        console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
-        console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
     });
 
     // When the second card is selected,
@@ -105,7 +105,7 @@ $(document).ready(function(){
             $("#attackerArea").attr("src", "./assets/images/charmander.gif");
             $("#attackerArea").addClass("flipped");
             
-            $("#log").append("You have chosen Charmander! <br>");
+            $("#log").prepend("You have chosen Charmander! <br>");
         }
         else if (defender.attack == 0 && attacker.name != "Charmander" && !defeatedOpponents.includes("Charmander")){
             defender = {
@@ -126,7 +126,7 @@ $(document).ready(function(){
             $("#c2").css("background-color", "#FBA5A5");
             $("#defenderArea").attr("src", "./assets/images/charmander.gif");
 
-            $("#log").append("Your opponent will be Charmander! <br>");
+            $("#log").prepend("Your opponent will be Charmander! <br>");
         }
         console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
         console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
@@ -154,7 +154,7 @@ $(document).ready(function(){
             $("#attackerArea").attr("src", "./assets/images/squirtle.gif");
             $("#attackerArea").addClass("flipped");
             
-            $("#log").append("You have chosen Squirtle! <br>");
+            $("#log").prepend("You have chosen Squirtle! <br>");
         } 
         else if (defender.attack == 0 && attacker.name != "Squirtle" && !defeatedOpponents.includes("Squirtle")){
             defender = {
@@ -175,7 +175,7 @@ $(document).ready(function(){
             $("#c3").css("background-color", "#FBA5A5");
             $("#defenderArea").attr("src", "./assets/images/squirtle.gif");
             
-            $("#log").append("Your opponent will be Squirtle! <br>");
+            $("#log").prepend("Your opponent will be Squirtle! <br>");
         } 
         console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
         console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
@@ -203,7 +203,7 @@ $(document).ready(function(){
             $("#attackerArea").attr("src", "./assets/images/pikachu.gif");
             $("#attackerArea").addClass("flipped");
             
-            $("#log").append("You have chosen Pikachu! <br>");
+            $("#log").prepend("You have chosen Pikachu! <br>");
         }
         else if (defender.attack == 0 && attacker.name != "Pikachu" && !defeatedOpponents.includes("Pikachu")){
             defender = {
@@ -224,10 +224,8 @@ $(document).ready(function(){
             $("#c4").css("background-color", "#FBA5A5");
             $("#defenderArea").attr("src", "./assets/images/pikachu.gif");
             
-            $("#log").append("Your opponent will be Pikachu! <br>");
+            $("#log").prepend("Your opponent will be Pikachu! <br>");
         }
-        console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
-        console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
     });
 
     // When the 'Attack' button is pressed,
@@ -244,6 +242,7 @@ $(document).ready(function(){
             dTotal = defenderBar.data('total'),
             dValue = defenderBar.data('value');
 
+        // If both attacker and defender slots are populated,
         // Change attacker's and defender's health bar.
         if (attacker.attack != 0 && defender.attack != 0){
             var dDamage = defender.cAttack;
@@ -286,28 +285,31 @@ $(document).ready(function(){
                 d_Total_Bar.css('width', dBarWidth + "%");
             }, 500);
 
+            $("#log").prepend(
+                defender.name + " takes " + attacker.attack + " damage. <br>" +
+                defender.name + " retaliates and deals " + defender.cAttack + " damage to " + attacker.name + ". <br>");
+            
             defender.health -= attacker.attack;
             attacker.health -= defender.cAttack;
             attacker.attack += attacker.bAttack;
-            
+
             $("#attackCounterA").text("Attack: " + attacker.attack);
 
-            console.log(attacker.name + " now has " + attacker.health);
-            console.log(defender.name + " now has " + defender.health);
-        }
-
-        if (attacker.health <= 0){
-            alert("You lose!");
-        }
-        else if (defender.health <= 0){
-            alert(defender.name + " fainted!");
-            $('#defenderArea').attr("src", "#");
-            defender.attack = 0;
-            defenderCounter++;
+            if (attacker.health <= 0){
+                $("#log").prepend("Your Pokemon has fainted... Game Over!");
+            }
+            else if (defender.health <= 0){
+                $("#log").prepend(defender.name + " has fainted. <br>");
+                
+                defeatedOpponents.push(defender.name);
+                $('#defenderArea').attr("src", "#");
+                defender.attack = 0;
+                defenderCounter++;
+            }
         }
 
         if (defenderCounter == 3){
-            alert("You win!");
+            $("#log").prepend("You have defeated all the opponents. You win! <br>");
         }
     });
 
