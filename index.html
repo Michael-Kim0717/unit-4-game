@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Added CSS files and Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+        <!-- Added JQuery and Javascript file -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+        <title> Pokemon RPG </title>
+    </head>
+        <!-- Displays the four Pokemon to choose from. -->
+        <!-- Upon hovering over a certain Pokemon, show an enlarged portrait and its statistics. -->
+        <!-- On click at first will put the portrait into the battle zone as the 'Attacker'. -->
+        <!-- Clicking any available portraits while the 'Defender' slot is vacant will add that portrait to the 'Defender' -->
+        <h3> Your Choices : </h3>
+        <div class="yourChoices">
+            <img src="./assets/images/bulbasaur.png" class="choice" id="c1">
+            <img src="./assets/images/charmander.png" class="choice" id="c2">
+            <img src="./assets/images/squirtle.png" class="choice" id="c3">
+            <img src="./assets/images/pikachu.png" class="choice" id="c4">
+        </div>
+        <br>
+
+        <!-- The battlefield would have the following in the 'Attacker/Defender' section : -->
+        <!-- Health Bar
+             Image
+             Attack Value -->
+        <div class="battleField">
+            <img src="./assets/images/battleground.png" class="arena">
+            <button class="btn btn-primary" id="attack"> ATTACK </button>
+        </div>
+    <body>
+        
+    </body>
+
+</html>

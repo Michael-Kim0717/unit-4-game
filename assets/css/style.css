@@ -1,0 +1,40 @@
+/* Body */
+
+body {
+    background: url(../images/background.png);
+}
+
+h3 {
+    color: white;
+    font-size: 54px;
+    text-shadow: 2px 2px black;
+    text-align: center;
+}
+
+.arena {
+    border-radius: 10px;
+    border: 3px solid white;
+}
+
+.battleField {
+    width: 800px;
+    margin: auto;
+}
+
+.btn {
+    border: 2px solid white;
+    height: 50px;
+    width: 100px;
+}
+
+.choice {
+    background-color: #A5F7FB;
+    border-radius: 10px;
+    border: 3px solid darkgray;
+    margin: 10px;
+}
+
+.yourChoices {
+    width: 600px;
+    margin: 0 auto;
+}
