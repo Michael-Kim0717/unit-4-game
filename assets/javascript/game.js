@@ -19,9 +19,6 @@ $(document).ready(function(){
     var defenderCounter = 0;
 
     /* Variables for HP */
-    /* var hBar = $('.health-bar'),
-        bar = hBar.find('.bar'),
-        hit = hBar.find('.hit'); */
     var 
         attackerBar = $("#attackerHP");
         defenderBar = $("#defenderHP");
@@ -29,6 +26,12 @@ $(document).ready(function(){
         a_Hit_Bar = attackerBar.find("#a-hit-bar");
         d_Total_Bar = defenderBar.find("#d-total-bar");
         d_Hit_Bar = defenderBar.find("#d-hit-bar");
+
+    /* Array of defeated opponents to check valid choices for opponents */
+    var defeatedOpponents = [];
+
+    /* Make the log chat as tall as the arena height. */
+    $("#log").height($(".arena").height() - 25);
 
     // When the first card is selected,
     // If there is no attacker, Bulbasaur will become our attacker,
@@ -42,13 +45,20 @@ $(document).ready(function(){
                 attack: 22,
                 bAttack: 22
             }
+
             attackerBar.data('total', 75);
             attackerBar.data('value', 75);
+
+            $("#healthCounterA").append(attacker.health + " / " + attacker.health);
+            $("#attackCounterA").append(attacker.attack);
+
             $("#c1").css("background-color", "#FBA5A5");
-            $("#attackerArea").attr("src", "./assets/images/bulbasaur.png");
+            $("#attackerArea").attr("src", "./assets/images/bulbasaur.gif");
             $("#attackerArea").addClass("flipped");
+
+            $("#log").append("You have chosen Bulbasaur! <br>");
         }
-        else if (defender.attack == 0){
+        else if (defender.attack == 0 && attacker.name != "Bulbasaur" && !defeatedOpponents.includes("Bulbasaur")){
             defender = {
                 name: "Bulbasaur",
                 health: 75,
@@ -57,12 +67,17 @@ $(document).ready(function(){
             }
             defenderBar.data('total', 75);
             defenderBar.data('value', 75);
+
+            $("#healthCounterD").text("Health: " + defender.health + " / " + defender.health);
+            $("#attackCounterD").text("Attack : " + defender.cAttack);
                 
             d_Hit_Bar.css({'width': '0'});
             d_Total_Bar.css('width', '100%');
             
             $("#c1").css("background-color", "#FBA5A5");
-            $("#defenderArea").attr("src", "./assets/images/bulbasaur.png");
+            $("#defenderArea").attr("src", "./assets/images/bulbasaur.gif");
+
+            $("#log").append("Your opponent will be Bulbasaur! <br>");
         }
         console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
         console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
@@ -82,11 +97,17 @@ $(document).ready(function(){
             }
             attackerBar.data('total', 50);
             attackerBar.data('value', 50);
+
+            $("#healthCounterA").append(attacker.health + " / " + attacker.health);
+            $("#attackCounterA").append(attacker.attack);
+
             $("#c2").css("background-color", "#FBA5A5");
-            $("#attackerArea").attr("src", "./assets/images/charmander.png");
+            $("#attackerArea").attr("src", "./assets/images/charmander.gif");
             $("#attackerArea").addClass("flipped");
+            
+            $("#log").append("You have chosen Charmander! <br>");
         }
-        else if (defender.attack == 0){
+        else if (defender.attack == 0 && attacker.name != "Charmander" && !defeatedOpponents.includes("Charmander")){
             defender = {
                 name: "Charmander",
                 health: 50,
@@ -95,12 +116,17 @@ $(document).ready(function(){
             }
             defenderBar.data('total', 50);
             defenderBar.data('value', 50);
-
+            
+            $("#healthCounterD").text("Health: " + defender.health + " / " + defender.health);
+            $("#attackCounterD").text("Attack : " + defender.cAttack);
+            
             d_Hit_Bar.css({'width': '0'});
             d_Total_Bar.css('width', '100%');
 
             $("#c2").css("background-color", "#FBA5A5");
-            $("#defenderArea").attr("src", "./assets/images/charmander.png");
+            $("#defenderArea").attr("src", "./assets/images/charmander.gif");
+
+            $("#log").append("Your opponent will be Charmander! <br>");
         }
         console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
         console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
@@ -120,11 +146,17 @@ $(document).ready(function(){
             }
             attackerBar.data('total', 100);
             attackerBar.data('value', 100);
+            
+            $("#healthCounterA").append(attacker.health + " / " + attacker.health);
+            $("#attackCounterA").append(attacker.attack);
+
             $("#c3").css("background-color", "#FBA5A5");
-            $("#attackerArea").attr("src", "./assets/images/squirtle.png");
+            $("#attackerArea").attr("src", "./assets/images/squirtle.gif");
             $("#attackerArea").addClass("flipped");
+            
+            $("#log").append("You have chosen Squirtle! <br>");
         } 
-        else if (defender.attack == 0){
+        else if (defender.attack == 0 && attacker.name != "Squirtle" && !defeatedOpponents.includes("Squirtle")){
             defender = {
                 name: "Squirtle",
                 health: 100,
@@ -133,12 +165,17 @@ $(document).ready(function(){
             }
             defenderBar.data('total', 100);
             defenderBar.data('value', 100);
+
+            $("#healthCounterD").text("Health: " + defender.health + " / " + defender.health);
+            $("#attackCounterD").text("Attack : " + defender.cAttack);
             
             d_Hit_Bar.css({'width': '0'});
             d_Total_Bar.css('width', '100%');
 
             $("#c3").css("background-color", "#FBA5A5");
-            $("#defenderArea").attr("src", "./assets/images/squirtle.png");
+            $("#defenderArea").attr("src", "./assets/images/squirtle.gif");
+            
+            $("#log").append("Your opponent will be Squirtle! <br>");
         } 
         console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
         console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
@@ -158,11 +195,17 @@ $(document).ready(function(){
             }
             attackerBar.data('total', 44);
             attackerBar.data('value', 44);
+
+            $("#healthCounterA").append(attacker.health + " / " + attacker.health);
+            $("#attackCounterA").append(attacker.attack);
+            
             $("#c4").css("background-color", "#FBA5A5");
-            $("#attackerArea").attr("src", "./assets/images/pikachu.png");
+            $("#attackerArea").attr("src", "./assets/images/pikachu.gif");
             $("#attackerArea").addClass("flipped");
+            
+            $("#log").append("You have chosen Pikachu! <br>");
         }
-        else if (defender.attack == 0){
+        else if (defender.attack == 0 && attacker.name != "Pikachu" && !defeatedOpponents.includes("Pikachu")){
             defender = {
                 name: "Pikachu",
                 health: 44,
@@ -172,11 +215,16 @@ $(document).ready(function(){
             defenderBar.data('total', 44);
             defenderBar.data('value', 44);
 
+            $("#healthCounterD").text("Health: " + defender.health + " / " + defender.health);
+            $("#attackCounterD").text("Attack : " + defender.cAttack);
+            
             d_Hit_Bar.css({'width': '0'});
             d_Total_Bar.css('width', '100%');
             
             $("#c4").css("background-color", "#FBA5A5");
-            $("#defenderArea").attr("src", "./assets/images/pikachu.png");
+            $("#defenderArea").attr("src", "./assets/images/pikachu.gif");
+            
+            $("#log").append("Your opponent will be Pikachu! <br>");
         }
         console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
         console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
@@ -206,6 +254,11 @@ $(document).ready(function(){
                 aHitWidth = aBarWidth + "%";
             }
 
+            if (aHP < 0){
+                aHP = 0;
+            }
+            $("#healthCounterA").text("Health: " + aHP + " / " + aTotal);
+
             var aDamage = attacker.attack;
             var dHP = dValue - aDamage;
             var dBarWidth = (dHP / dTotal) * 100;
@@ -213,6 +266,11 @@ $(document).ready(function(){
             if ((aDamage / dValue) > dBarWidth){
                 dHitWidth = dBarWidth + "%";
             }
+            
+            if (dHP < 0){
+                dHP = 0;
+            }
+            $("#healthCounterD").text("Health: " + dHP + " / " + dTotal);
 
             a_Hit_Bar.css('width', aHitWidth);
             attackerBar.data('value', aHP);
@@ -231,6 +289,9 @@ $(document).ready(function(){
             defender.health -= attacker.attack;
             attacker.health -= defender.cAttack;
             attacker.attack += attacker.bAttack;
+            
+            $("#attackCounterA").text("Attack: " + attacker.attack);
+
             console.log(attacker.name + " now has " + attacker.health);
             console.log(defender.name + " now has " + defender.health);
         }

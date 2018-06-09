@@ -22,11 +22,33 @@
         <!-- On click at first will put the portrait into the battle zone as the 'Attacker'. -->
         <!-- Clicking any available portraits while the 'Defender' slot is vacant will add that portrait to the 'Defender' -->
         <h3> Your Choices : </h3>
-        <div class="yourChoices">
-            <img src="./assets/images/bulbasaur.png" class="choice" id="c1">
-            <img src="./assets/images/charmander.png" class="choice" id="c2">
-            <img src="./assets/images/squirtle.png" class="choice" id="c3">
-            <img src="./assets/images/pikachu.png" class="choice" id="c4">
+        <div class="yourChoices container">
+            <div class="row">
+                <div class="col-3">
+                    <img src="./assets/images/bulbasaur.png" class="choice" id="c1">
+                    <h4> Health : 75 </h4>
+                    <h4> Base Attack : 22 </h4>
+                    <h4> Counter Attack : 3 </h4>
+                </div>
+                <div class="col-3">
+                    <img src="./assets/images/charmander.png" class="choice" id="c2">
+                    <h4> Health : 50 </h4>
+                    <h4> Base Attack : 27 </h4>
+                    <h4> Counter Attack : 6 </h4>
+                </div>
+                <div class="col-3">
+                    <img src="./assets/images/squirtle.png" class="choice" id="c3">
+                    <h4> Health : 100 </h4>
+                    <h4> Base Attack : 18 </h4>
+                    <h4> Counter Attack : 2 </h4>
+                </div>
+                <div class="col-3">
+                    <img src="./assets/images/pikachu.png" class="choice" id="c4">
+                    <h4> Health : 44 </h4>
+                    <h4> Base Attack : 31 </h4>
+                    <h4> Counter Attack : 5 </h4>
+                </div>
+            </div>
         </div>
         <br>
 
@@ -35,23 +57,55 @@
              Image
              Attack Value -->
         <div class="battleField container">
-            <img src="./assets/images/battleground.png" class="arena">
-
-            <div class="health-bar" id="attackerHP" data-total="1000" data-value="1000">
-                <div class="bar" id="a-total-bar">
-                    <div class="hit" id="a-hit-bar"></div>
+            <div class="row">
+                <div class="col-8" id="battleDiv">
+                    <img src="./assets/images/battleground.png" class="arena">
+                    <div class="row">
+                        <div class="col-5">
+                            <h5 id="healthCounterA"> Health: </h5>
+                            <h5 id="attackCounterA"> Attack: </h5>
+                            <div class="health-bar" id="attackerHP" data-total="1000" data-value="1000">
+                                <div class="bar" id="a-total-bar">
+                                    <div class="hit" id="a-hit-bar"></div>
+                                </div>
+                            </div>    
+                            <img src="#" id="attackerArea">        
+                        </div>
+                        
+                        <div class="col-2">
+                            <button class="btn btn-primary" id="attack"> ATTACK </button>
+                        </div>
+                        
+                        <div class="col-5">
+                            <h5 id="healthCounterD"> Health: </h5>
+                            <h5 id="attackCounterD"> Attack: </h5>
+                            <div class="health-bar" id="defenderHP" data-total="1000" data-value="1000">
+                                <div class="bar" id="d-total-bar">
+                                    <div class="hit" id="d-hit-bar"></div>
+                                </div>
+                            </div>
+                            <img src="#" id="defenderArea">
+                        </div>
+                    </div>
                 </div>
-            </div>    
-            <img src="./assets/images/pokeball.png" id="attackerArea">
-
-            <button class="btn btn-primary" id="attack"> ATTACK </button>
-
-            <div class="health-bar" id="defenderHP" data-total="1000" data-value="1000">
-                <div class="bar" id="d-total-bar">
-                    <div class="hit" id="d-hit-bar"></div>
+                <div class="col-4" id="chatDiv">
+                    <h6 id="log"> 
+                        ** RULES : 
+                        <br>
+                        Pick your starter Pokemon.
+                        <br>
+                        This will be your Pokemon for the rest of the game.
+                        <br>
+                        Every time you attack, your attack power will permanently grow by the base Attack power, but you will never be able to regenerate health.
+                        <br>
+                        Your opponent will always do damage based on their Counter Attack power and it will stay stagnant throughout the game.
+                        <br>
+                        There are no elemental advantages, so choose your characters wisely and good luck!
+                        <br>
+                        <br>
+                    </h6>
                 </div>
             </div>
-            <img src="./assets/images/pokeball.png" id="defenderArea">
         </div>
     <body>
         
