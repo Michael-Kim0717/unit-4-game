@@ -34,11 +34,24 @@
         <!-- Health Bar
              Image
              Attack Value -->
-        <div class="battleField">
+        <div class="battleField container">
             <img src="./assets/images/battleground.png" class="arena">
-            <img src="#" id="attackerArea">
+
+            <div class="health-bar" id="attackerHP" data-total="1000" data-value="1000">
+                <div class="bar" id="a-total-bar">
+                    <div class="hit" id="a-hit-bar"></div>
+                </div>
+            </div>    
+            <img src="./assets/images/pokeball.png" id="attackerArea">
+
             <button class="btn btn-primary" id="attack"> ATTACK </button>
-            <img src="#" id="defenderArea">
+
+            <div class="health-bar" id="defenderHP" data-total="1000" data-value="1000">
+                <div class="bar" id="d-total-bar">
+                    <div class="hit" id="d-hit-bar"></div>
+                </div>
+            </div>
+            <img src="./assets/images/pokeball.png" id="defenderArea">
         </div>
     <body>
         

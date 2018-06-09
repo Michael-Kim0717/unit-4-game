@@ -56,17 +56,19 @@ h3 {
 
 #attackerArea {
     position: relative;
-    bottom: 200px;
+    bottom: 250px;
     left: 15%;
+    width: 125px;
 }
 
 #defenderArea {
     position: relative;
-    bottom: 260px;
-    left: 40%;
+    bottom: 425px;
+    left: 70%;
+    width: 125px;
 }
 
-@media only screen and (max-width: 640px){
+/* @media only screen and (max-width: 640px){
     .arena {
         width: 550px;
     }
@@ -76,4 +78,49 @@ h3 {
     .arena {
         width: 600px;
     }
+} */
+
+/* For health bars. */
+
+.health-bar {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 200px;
+    height: 20px;
+    padding: 5px;
+    background: #ddd;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+}
+.bar {
+    background: #c54;
+    width: 100%;
+    height: 10px;
+    position: relative;
+
+    transition: width .5s linear;
+}
+
+.hit {
+    background: rgba(255,255,255,0.6);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 0px;
+
+    transition: width .5s linear;
+}
+
+#attackerHP {
+    bottom: 300px;
+    left: 10%;
+}
+
+#defenderHP {
+    bottom: 475px;
+    left: 65%;
 }
