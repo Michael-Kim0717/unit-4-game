@@ -34,7 +34,46 @@ h3 {
     margin: 10px;
 }
 
+.flipped {
+    transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -khtml-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+}
+
 .yourChoices {
     width: 600px;
     margin: 0 auto;
+}
+
+#attack {
+    position: relative;
+    bottom: 150px;
+    left: 28%;
+}
+
+#attackerArea {
+    position: relative;
+    bottom: 200px;
+    left: 15%;
+}
+
+#defenderArea {
+    position: relative;
+    bottom: 260px;
+    left: 40%;
+}
+
+@media only screen and (max-width: 640px){
+    .arena {
+        width: 550px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .arena {
+        width: 600px;
+    }
 }

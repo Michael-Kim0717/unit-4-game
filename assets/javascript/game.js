@@ -27,6 +27,8 @@ $(document).ready(function(){
                 bAttack: 22
             }
             $("#c1").css("background-color", "#FBA5A5");
+            $("#attackerArea").attr("src", "./assets/images/bulbasaur.png");
+            $("#attackerArea").addClass("flipped");
         }
         else if (defender.attack == 0){
             defender = {
@@ -36,6 +38,7 @@ $(document).ready(function(){
                 cAttack: 3
             }
             $("#c1").css("background-color", "#FBA5A5");
+            $("#defenderArea").attr("src", "./assets/images/bulbasaur.png");
         }
         console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
         console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
@@ -50,6 +53,8 @@ $(document).ready(function(){
                 bAttack: 27
             }
             $("#c2").css("background-color", "#FBA5A5");
+            $("#attackerArea").attr("src", "./assets/images/charmander.png");
+            $("#attackerArea").addClass("flipped");
         }
         else if (defender.attack == 0){
             defender = {
@@ -59,6 +64,7 @@ $(document).ready(function(){
                 cAttack: 6
             }
             $("#c2").css("background-color", "#FBA5A5");
+            $("#defenderArea").attr("src", "./assets/images/charmander.png");
         }
         console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
         console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
@@ -73,6 +79,8 @@ $(document).ready(function(){
                 bAttack: 18
             }
             $("#c3").css("background-color", "#FBA5A5");
+            $("#attackerArea").attr("src", "./assets/images/squirtle.png");
+            $("#attackerArea").addClass("flipped");
         } 
         else if (defender.attack == 0){
             defender = {
@@ -82,6 +90,7 @@ $(document).ready(function(){
                 cAttack: 2
             }
             $("#c3").css("background-color", "#FBA5A5");
+            $("#defenderArea").attr("src", "./assets/images/squirtle.png");
         } 
         console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
         console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
@@ -96,6 +105,8 @@ $(document).ready(function(){
                 bAttack: 31
             }
             $("#c4").css("background-color", "#FBA5A5");
+            $("#attackerArea").attr("src", "./assets/images/pikachu.png");
+            $("#attackerArea").addClass("flipped");
         }
         else if (defender.attack == 0){
             defender = {
@@ -105,6 +116,7 @@ $(document).ready(function(){
                 cAttack: 5
             }
             $("#c4").css("background-color", "#FBA5A5");
+            $("#defenderArea").attr("src", "./assets/images/pikachu.png");
         }
         console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
         console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
@@ -124,6 +136,7 @@ $(document).ready(function(){
         }
         else if (defender.health <= 0){
             alert(defender.name + " fainted!");
+            $('#defenderArea').attr("src", "#");
             defender.attack = 0;
             defenderCounter++;
         }
