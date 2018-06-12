@@ -1,7 +1,8 @@
 /* TODO:
-    Alignment on smaller screens
-    WIN LOSS Notifications
-    Google Fonts
+    Balancing
+    WIN LOSS Notifications --
+    Google Fonts (Cinzel for Title, Alegreya for Log, VT323 ) --
+    On hover for choices --
 */
 
 $(document).ready(function(){
@@ -35,6 +36,13 @@ $(document).ready(function(){
 
     /* Array of defeated opponents to check valid choices for opponents */
     var defeatedOpponents = [];
+
+    /* Apply following to the modal on win or on loss */
+    var onWinClose = document.getElementById("closeWin");             
+    var onLossClose = document.getElementById("closeLose");
+    
+    var onWinModal = document.getElementById("onWin");
+    var onLossModal = document.getElementById("onLose");
 
     // When the first card is selected,
     // If there is no attacker, Bulbasaur will become our attacker,
@@ -307,8 +315,7 @@ $(document).ready(function(){
             $("#lATKIndicator").text("Attack: " + attacker.attack);
 
             if (attacker.health <= 0){
-                $("#logLG").prepend("Your Pokemon has fainted... Game Over!");
-                $("#logElse").prepend("Your Pokemon has fainted... Game Over!");
+                onLossModal.style.display = "block";
             }
             else if (defender.health <= 0){
                 $("#logLG").prepend(defender.name + " has fainted. <br>");
@@ -322,9 +329,23 @@ $(document).ready(function(){
         }
 
         if (defenderCounter == 3){
-            $("#logLG").prepend("You have defeated all the opponents. You win! <br>");
-            $("#logElse").prepend("You have defeated all the opponents. You win! <br>");
+            onWinModal.style.display = "block";
         }
     });
+
+    onLossClose.onclick = function(){
+        onLossModal.style.display = "none";
+    };
+
+    onWinClose.onclick = function(){
+        onWinModal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == onLossModal || event.target == onWinModal) {
+            onLossModal.style.display = "none";
+            onWinModal.style.display = "none";
+        }
+    }
     
 });

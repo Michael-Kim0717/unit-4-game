@@ -15,6 +15,9 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="assets/javascript/game.js"></script>
 
+        <!-- Adding Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Cinzel|VT323|Roboto+Mono" rel="stylesheet">
+    
         <title> Pokemon RPG </title>
     </head>
         <!-- Displays the four Pokemon to choose from. -->
@@ -120,6 +123,20 @@
                         Your opponent will always do damage based on their Counter Attack power and it will stay stagnant throughout the game.
                         <br>
                         There are no elemental advantages, so choose your characters wisely and good luck!
+                    </div>
+                </div>
+
+                <div id="onWin" class="modal">
+                    <div class="modal-content">
+                        <span id="closeWin" class="close"> &times; </span>
+                        <h4 class="modalText"> You have defeated all the opponents. You win! </h4>
+                    </div>
+                </div>
+
+                <div id="onLose" class="modal">
+                    <div class="modal-content">
+                        <span id="closeLose" class="close"> &times; </span>
+                        <h4 class="modalText"> Your Pokemon has fainted... You lose! </h4>
                     </div>
                 </div>
             </div>
