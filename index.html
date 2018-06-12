@@ -58,18 +58,18 @@
              Attack Value -->
         <div class="battleField container">
             <div class="row">
-                <div class="col-8" id="battleDiv">
+                <div class="col-12 col-lg-8">
                     <img src="./assets/images/battleground.png" class="arena">
-                    <div class="row">
+                    <div class="row" id="battleArena">
                         <div class="col-5">
-                            <h5 id="healthCounterA"> Health: </h5>
-                            <h5 id="attackCounterA"> Attack: </h5>
-                            <div class="health-bar" id="attackerHP" data-total="1000" data-value="1000">
+                            <h5 id="lHPIndicator"> Health: </h5>
+                            <h5 id="lATKIndicator"> Attack: </h5>
+                            <div class="health-bar" id="lHPBar" data-total="1000" data-value="1000">
                                 <div class="bar" id="a-total-bar">
                                     <div class="hit" id="a-hit-bar"></div>
                                 </div>
                             </div>    
-                            <img src="#" id="attackerArea">        
+                            <img src="#" id="lSprite">        
                         </div>
                         
                         <div class="col-2">
@@ -77,19 +77,19 @@
                         </div>
                         
                         <div class="col-5">
-                            <h5 id="healthCounterD"> Health: </h5>
-                            <h5 id="attackCounterD"> Attack: </h5>
-                            <div class="health-bar" id="defenderHP" data-total="1000" data-value="1000">
+                            <h5 id="rHPIndicator"> Health: </h5>
+                            <h5 id="rATKIndicator"> Attack: </h5>
+                            <div class="health-bar" id="rHPBar" data-total="1000" data-value="1000">
                                 <div class="bar" id="d-total-bar">
                                     <div class="hit" id="d-hit-bar"></div>
                                 </div>
                             </div>
-                            <img src="#" id="defenderArea">
+                            <img src="#" id="rSprite">
                         </div>
                     </div>
                 </div>
-                <div class="col-4" id="chatDiv">
-                    <h6 id="log"> 
+                <div class="col-lg-4">
+                    <div id="logLG"> 
                         <br>
                         <br>
                         ** RULES : 
@@ -103,7 +103,24 @@
                         Your opponent will always do damage based on their Counter Attack power and it will stay stagnant throughout the game.
                         <br>
                         There are no elemental advantages, so choose your characters wisely and good luck!
-                    </h6>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div id="logElse"> 
+                        <br>
+                        <br>
+                        ** RULES : 
+                        <br>
+                        Pick your starter Pokemon.
+                        <br>
+                        This will be your Pokemon for the rest of the game.
+                        <br>
+                        Every time you attack, your attack power will permanently grow by the base Attack power, but you will never be able to regenerate health.
+                        <br>
+                        Your opponent will always do damage based on their Counter Attack power and it will stay stagnant throughout the game.
+                        <br>
+                        There are no elemental advantages, so choose your characters wisely and good luck!
+                    </div>
                 </div>
             </div>
         </div>
