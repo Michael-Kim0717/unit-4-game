@@ -22,30 +22,30 @@ $(document).ready(function(){
 
     /* Random values for all Pokemon starters on start. */
     
-    var bulbHP = Math.floor(Math.random() * 11) + 100;
-    var bulbBA = Math.floor(Math.random() * 4) + 3;
-    var bulbCA = Math.floor(Math.random() * 4) + 13;
+    var bulbHP = Math.floor(Math.random() * 11) + 95;
+    var bulbBA = Math.floor(Math.random() * 3) + 5;
+    var bulbCA = Math.floor(Math.random() * 3) + 13;
     $("#bulbHP").text("Health: " + bulbHP);
     $("#bulbBA").text("Base Attack: " + bulbBA);
     $("#bulbCA").text("Counter Attack: " + bulbCA);
     
-    var charHP = Math.floor(Math.random() * 11) + 90;
-    var charBA = Math.floor(Math.random() * 4) + 3;
-    var charCA = Math.floor(Math.random() * 4) + 16;
+    var charHP = Math.floor(Math.random() * 11) + 80;
+    var charBA = Math.floor(Math.random() * 3) + 6;
+    var charCA = Math.floor(Math.random() * 3) + 16;
     $("#charHP").text("Health: " + charHP);
     $("#charBA").text("Base Attack: " + charBA);
     $("#charCA").text("Counter Attack: " + charCA);
     
-    var squirtHP = Math.floor(Math.random() * 11) + 120;
-    var squirtBA = Math.floor(Math.random() * 3) + 2;
-    var squirtCA = Math.floor(Math.random() * 4) + 10;
+    var squirtHP = Math.floor(Math.random() * 11) + 125;
+    var squirtBA = Math.floor(Math.random() * 3) + 3;
+    var squirtCA = Math.floor(Math.random() * 3) + 10;
     $("#squirtHP").text("Health: " + squirtHP);
     $("#squirtBA").text("Base Attack: " + squirtBA);
     $("#squirtCA").text("Counter Attack: " + squirtCA);
 
-    var pikaHP = Math.floor(Math.random() * 11) + 80;
-    var pikaBA = Math.floor(Math.random() * 4) + 5;
-    var pikaCA = Math.floor(Math.random() * 4) + 17;
+    var pikaHP = Math.floor(Math.random() * 11) + 65;
+    var pikaBA = Math.floor(Math.random() * 3) + 7;
+    var pikaCA = Math.floor(Math.random() * 3) + 19;
     $("#pikaHP").text("Health: " + pikaHP);
     $("#pikaBA").text("Base Attack: " + pikaBA);
     $("#pikaCA").text("Counter Attack: " + pikaCA);
