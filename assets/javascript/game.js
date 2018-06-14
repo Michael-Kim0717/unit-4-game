@@ -1,8 +1,6 @@
 /* TODO:
     Balancing
-    WIN LOSS Notifications --
-    Google Fonts (Cinzel for Title, Alegreya for Log, VT323 ) --
-    On hover for choices --
+    Changed attack function if your character faints at the same time as the enemy. -- 
 */
 
 $(document).ready(function(){
@@ -21,6 +19,36 @@ $(document).ready(function(){
         attack: 0,
         cAttack: 0
     };
+
+    /* Random values for all Pokemon starters on start. */
+    
+    var bulbHP = Math.floor(Math.random() * 11) + 100;
+    var bulbBA = Math.floor(Math.random() * 4) + 3;
+    var bulbCA = Math.floor(Math.random() * 4) + 13;
+    $("#bulbHP").text("Health: " + bulbHP);
+    $("#bulbBA").text("Base Attack: " + bulbBA);
+    $("#bulbCA").text("Counter Attack: " + bulbCA);
+    
+    var charHP = Math.floor(Math.random() * 11) + 90;
+    var charBA = Math.floor(Math.random() * 4) + 3;
+    var charCA = Math.floor(Math.random() * 4) + 16;
+    $("#charHP").text("Health: " + charHP);
+    $("#charBA").text("Base Attack: " + charBA);
+    $("#charCA").text("Counter Attack: " + charCA);
+    
+    var squirtHP = Math.floor(Math.random() * 11) + 120;
+    var squirtBA = Math.floor(Math.random() * 3) + 2;
+    var squirtCA = Math.floor(Math.random() * 4) + 10;
+    $("#squirtHP").text("Health: " + squirtHP);
+    $("#squirtBA").text("Base Attack: " + squirtBA);
+    $("#squirtCA").text("Counter Attack: " + squirtCA);
+
+    var pikaHP = Math.floor(Math.random() * 11) + 80;
+    var pikaBA = Math.floor(Math.random() * 4) + 5;
+    var pikaCA = Math.floor(Math.random() * 4) + 17;
+    $("#pikaHP").text("Health: " + pikaHP);
+    $("#pikaBA").text("Base Attack: " + pikaBA);
+    $("#pikaCA").text("Counter Attack: " + pikaCA);
 
     /* Variable to determine winner */
     var defenderCounter = 0;
@@ -52,13 +80,13 @@ $(document).ready(function(){
         if (attacker.attack == 0){
             attacker = {
                 name: "Bulbasaur",
-                health: 75,
-                attack: 22,
-                bAttack: 22
+                health: bulbHP,
+                attack: bulbBA,
+                bAttack: bulbBA
             }
 
-            attackerBar.data('total', 75);
-            attackerBar.data('value', 75);
+            attackerBar.data('total', bulbHP);
+            attackerBar.data('value', bulbHP);
 
             $("#lHPIndicator").append(attacker.health + " / " + attacker.health);
             $("#lATKIndicator").append(attacker.attack);
@@ -73,12 +101,12 @@ $(document).ready(function(){
         else if (defender.attack == 0 && attacker.name != "Bulbasaur" && !defeatedOpponents.includes("Bulbasaur")){
             defender = {
                 name: "Bulbasaur",
-                health: 75,
-                attack: 22,
-                cAttack: 3
+                health: bulbHP,
+                attack: bulbBA,
+                cAttack: bulbCA
             }
-            defenderBar.data('total', 75);
-            defenderBar.data('value', 75);
+            defenderBar.data('total', bulbHP);
+            defenderBar.data('value', bulbHP);
 
             $("#rHPIndicator").text("Health: " + defender.health + " / " + defender.health);
             $("#rATKIndicator").text("Attack : " + defender.cAttack);
@@ -102,12 +130,12 @@ $(document).ready(function(){
         if (attacker.attack == 0){
             attacker = {
                 name: "Charmander",
-                health: 50,
-                attack: 27,
-                bAttack: 27
+                health: charHP,
+                attack: charBA,
+                bAttack: charBA
             }
-            attackerBar.data('total', 50);
-            attackerBar.data('value', 50);
+            attackerBar.data('total', charHP);
+            attackerBar.data('value', charHP);
 
             $("#lHPIndicator").append(attacker.health + " / " + attacker.health);
             $("#lATKIndicator").append(attacker.attack);
@@ -120,14 +148,18 @@ $(document).ready(function(){
             $("#logElse").prepend("You have chosen Charmander! <br>");
         }
         else if (defender.attack == 0 && attacker.name != "Charmander" && !defeatedOpponents.includes("Charmander")){
+            var healthRandom = Math.floor(Math.random() * 11) + 70;
+            var attackRandom = Math.floor(Math.random() * 4) + 3;
+            var cAttackRandom = Math.floor(Math.random() * 4) + 18;
+
             defender = {
                 name: "Charmander",
-                health: 50,
-                attack: 27,
-                cAttack: 6
+                health: charHP,
+                attack: charBA,
+                cAttack: charCA
             }
-            defenderBar.data('total', 50);
-            defenderBar.data('value', 50);
+            defenderBar.data('total', charHP);
+            defenderBar.data('value', charHP);
             
             $("#rHPIndicator").text("Health: " + defender.health + " / " + defender.health);
             $("#rATKIndicator").text("Attack : " + defender.cAttack);
@@ -151,12 +183,12 @@ $(document).ready(function(){
         if (attacker.attack == 0){
             attacker = {
                 name: "Squirtle",
-                health: 100,
-                attack: 18,
-                bAttack: 18
+                health: squirtHP,
+                attack: squirtBA,
+                bAttack: squirtBA
             }
-            attackerBar.data('total', 100);
-            attackerBar.data('value', 100);
+            attackerBar.data('total', squirtHP);
+            attackerBar.data('value', squirtHP);
             
             $("#lHPIndicator").append(attacker.health + " / " + attacker.health);
             $("#lATKIndicator").append(attacker.attack);
@@ -169,14 +201,18 @@ $(document).ready(function(){
             $("#logElse").prepend("You have chosen Squirtle! <br>");
         } 
         else if (defender.attack == 0 && attacker.name != "Squirtle" && !defeatedOpponents.includes("Squirtle")){
+            var healthRandom = Math.floor(Math.random() * 11) + 100;
+            var attackRandom = Math.floor(Math.random() * 3) + 2;
+            var cAttackRandom = Math.floor(Math.random() * 4) + 12;
+
             defender = {
                 name: "Squirtle",
-                health: 100,
-                attack: 18,
-                cAttack: 2
+                health: squirtHP,
+                attack: squirtBA,
+                cAttack: squirtCA
             }
-            defenderBar.data('total', 100);
-            defenderBar.data('value', 100);
+            defenderBar.data('total', squirtHP);
+            defenderBar.data('value', squirtHP);
 
             $("#rHPIndicator").text("Health: " + defender.health + " / " + defender.health);
             $("#rATKIndicator").text("Attack : " + defender.cAttack);
@@ -189,9 +225,7 @@ $(document).ready(function(){
             
             $("#logLG").prepend("Your opponent will be Squirtle! <br>");
             $("#logElse").prepend("Your opponent will be Squirtle! <br>");
-        } 
-        console.log(attacker.name + ", " + attacker.health + ", " + attacker.attack + ", " + attacker.bAttack);
-        console.log(defender.name + ", " + defender.health + ", " + defender.attack + ", " + defender.cAttack);
+        }
     });
 
     // When the last card is selected,
@@ -199,15 +233,15 @@ $(document).ready(function(){
     // Else, if there is no defender, Pikachu will become our defender.
     // Also sets images where applicable.
     $("#c4").on("click", function(){
-        if (attacker.attack == 0){
+        if (attacker.attack == 0){ 
             attacker = {
                 name: "Pikachu",
-                health: 44,
-                attack: 31,
-                bAttack: 31
+                health: pikaHP,
+                attack: pikaBA,
+                bAttack: pikaBA
             }
-            attackerBar.data('total', 44);
-            attackerBar.data('value', 44);
+            attackerBar.data('total', pikaHP);
+            attackerBar.data('value', pikaHP);
 
             $("#lHPIndicator").append(attacker.health + " / " + attacker.health);
             $("#lATKIndicator").append(attacker.attack);
@@ -222,12 +256,12 @@ $(document).ready(function(){
         else if (defender.attack == 0 && attacker.name != "Pikachu" && !defeatedOpponents.includes("Pikachu")){
             defender = {
                 name: "Pikachu",
-                health: 44,
-                attack: 31,
-                cAttack: 5
+                health: pikaHP,
+                attack: pikaBA,
+                cAttack: pikaCA
             }
-            defenderBar.data('total', 44);
-            defenderBar.data('value', 44);
+            defenderBar.data('total', pikaHP);
+            defenderBar.data('value', pikaHP);
 
             $("#rHPIndicator").text("Health: " + defender.health + " / " + defender.health);
             $("#rATKIndicator").text("Attack : " + defender.cAttack);
@@ -260,19 +294,6 @@ $(document).ready(function(){
         // If both attacker and defender slots are populated,
         // Change attacker's and defender's health bar.
         if (attacker.attack != 0 && defender.attack != 0){
-            var dDamage = defender.cAttack;
-            var aHP = aValue - dDamage;
-            var aBarWidth = (aHP / aTotal) * 100;
-            var aHitWidth = (dDamage / aValue) * 100 + "%";
-            if ((dDamage / aValue) > aBarWidth){
-                aHitWidth = aBarWidth + "%";
-            }
-
-            if (aHP < 0){
-                aHP = 0;
-            }
-            $("#lHPIndicator").text("Health: " + aHP + " / " + aTotal);
-
             var aDamage = attacker.attack;
             var dHP = dValue - aDamage;
             var dBarWidth = (dHP / dTotal) * 100;
@@ -285,6 +306,26 @@ $(document).ready(function(){
                 dHP = 0;
             }
             $("#rHPIndicator").text("Health: " + dHP + " / " + dTotal);
+
+            defender.health -= attacker.attack;
+            attacker.attack += attacker.bAttack;
+
+            if (dHP != 0){
+                var dDamage = defender.cAttack;
+                var aHP = aValue - dDamage;
+                var aBarWidth = (aHP / aTotal) * 100;
+                var aHitWidth = (dDamage / aValue) * 100 + "%";
+                if ((dDamage / aValue) > aBarWidth){
+                    aHitWidth = aBarWidth + "%";
+                }
+
+                if (aHP < 0){
+                    aHP = 0;
+                }
+                $("#lHPIndicator").text("Health: " + aHP + " / " + aTotal);
+                
+                attacker.health -= defender.cAttack;
+            }
 
             a_Hit_Bar.css('width', aHitWidth);
             attackerBar.data('value', aHP);
@@ -307,10 +348,6 @@ $(document).ready(function(){
             $("#logElse").prepend(
                 defender.name + " takes " + attacker.attack + " damage. <br>" +
                 defender.name + " retaliates and deals " + defender.cAttack + " damage to " + attacker.name + ". <br>");
-            
-            defender.health -= attacker.attack;
-            attacker.health -= defender.cAttack;
-            attacker.attack += attacker.bAttack;
 
             $("#lATKIndicator").text("Attack: " + attacker.attack);
 
